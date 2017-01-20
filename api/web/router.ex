@@ -7,5 +7,10 @@ defmodule Api.Router do
 
   scope "/api", Api do
     pipe_through :api
+
+
+    scope "/v1" do
+      resources "/states", StateController, only: [:index]
+    end
   end
 end
