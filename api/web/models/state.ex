@@ -3,6 +3,7 @@ defmodule Api.State do
 
     schema "states" do
         field :name, :string
+        field :capital, :string
 
         timestamps()
     end

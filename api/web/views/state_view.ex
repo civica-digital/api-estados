@@ -8,7 +8,8 @@ defmodule Api.StateView do
     def render("state.json", %{state: state}) do
         %{
             id: state.id,
-            name: state.name
+            name: state.name,
+            capital: state.capital
         }
     end
 end
