@@ -11,6 +11,7 @@ defmodule Api.Router do
 
     scope "/v1" do
       resources "/states", StateController, only: [:index]
+      resources "/towns", TownController, only: [:index]
     end
   end
 end

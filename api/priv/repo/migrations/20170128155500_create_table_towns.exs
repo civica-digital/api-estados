@@ -1,0 +1,17 @@
+defmodule Api.Repo.Migrations.CreateTableTowns do
+  use Ecto.Migration
+
+  def up do
+    create table(:towns) do
+      add :name, :string, null: false
+      add :state_id, references(:states)
+      timestamps()
+    end
+
+    create unique_index(:towns, [:name])
+  end
+
+  def down do
+    drop table(:towns) 
+  end
+end
