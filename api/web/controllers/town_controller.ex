@@ -4,7 +4,7 @@ defmodule Api.TownController do
     alias Api.Town
 
     def index(conn, _params) do
-        towns = Repo.all(Town)
+        towns = Repo.all(Town) |> Repo.preload([:state])
         render conn, "index.json", towns: towns
     end
 end

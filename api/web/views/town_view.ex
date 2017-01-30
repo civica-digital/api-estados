@@ -8,7 +8,7 @@ defmodule Api.TownView do
     def render("town.json", %{town: town}) do
         %{
             id: town.id,
-            town: town.state_id,
+            town: town.state.name,
             name: town.name
         }
     end
