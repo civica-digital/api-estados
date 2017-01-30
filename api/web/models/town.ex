@@ -3,7 +3,8 @@ defmodule Api.Town do
 
     schema "towns" do
         field :name, :string
-        field :state_id, :integer
+
+        belongs_to :state, Api.Town, foreign_key: :state_id 
         timestamps()
     end
 end

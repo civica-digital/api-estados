@@ -12,6 +12,6 @@ defmodule Api.Repo.Migrations.CreateTableTowns do
   end
 
   def down do
-    drop table(:towns) 
+    drop_if_exists table(:towns) 
   end
 end

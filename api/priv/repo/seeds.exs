@@ -12,7 +12,18 @@
 
 alias Api.State
 
-Api.Repo.insert!(%Api.State{name: "Aguascalientes", capital: "Aguascalientes"})
+state_1 = Api.Repo.insert!(%Api.State{name: "Aguascalientes", capital: "Aguascalientes"})
+          Api.Repo.insert!(%Api.Town{name: "Aguascalientes", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Asientos", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Calvillo", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Cosio", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "El Llano", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Jesús María", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Pabellón de Artega", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Rincón de Romos", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "San Francisco de los Romo", state_id: state_1.id})
+          Api.Repo.insert!(%Api.Town{name: "Tepezala", state_id: state_1.id})
+          
 Api.Repo.insert!(%Api.State{name: "Baja California", capital: "Mexicali"})
 Api.Repo.insert!(%Api.State{name: "Baja California Sur", capital: "La Paz"})
 Api.Repo.insert!(%Api.State{name: "Campeche", capital: "Campeche"})
