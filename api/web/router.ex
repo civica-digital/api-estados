@@ -1,7 +1,6 @@
 defmodule Api.Router do
   use Api.Web, :router
    
-
   pipeline :api do
     plug :accepts, ["json"]
   end
