@@ -11,5 +11,8 @@
 # and so on) as they will fail if something goes wrong.
 
 alias Api.State
-Repo.delete_all(State)
+alias Api.Town
+alias Api.Repo
+
 Repo.delete_all(Town)
+Api.Repo.delete_all(State)
