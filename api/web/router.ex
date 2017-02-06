@@ -1,6 +1,6 @@
 defmodule Api.Router do
   use Api.Web, :router
-   
+  
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -8,10 +8,13 @@ defmodule Api.Router do
   scope "/api", Api do
     pipe_through :api
 
-
     scope "/v1" do
-      resources "/states", StateController, only: [:index]
-      resources "/towns", TownController, only: [:index]
+      scope "/political_division" do
+        
+        resources "/states", StateController, only: [:index]
+        resources "/towns", TownController, only: [:index]
+      end
+
     end
   end
 end

@@ -5,7 +5,6 @@ defmodule Api.StateController do
 
     def index(conn, _params) do
         states = Repo.all(State) |> Repo.preload([:towns])
-        
         render conn, "index.json", states: states
     end
 end
