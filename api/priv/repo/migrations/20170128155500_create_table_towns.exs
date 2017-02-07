@@ -8,7 +8,7 @@ defmodule Api.Repo.Migrations.CreateTableTowns do
       timestamps()
     end
 
-    create unique_index(:towns, [:name])
+    create unique_index(:towns, [:name, :state_id])
   end
 
   def down do
