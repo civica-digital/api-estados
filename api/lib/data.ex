@@ -1,5 +1,5 @@
 defmodule Data do
-  #Data.load_csv
+
   def load_csv("estados") do
     alias Api.State
 
