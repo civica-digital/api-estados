@@ -9,7 +9,15 @@ defmodule Api.StateView do
         %{
             id: state.id,
             name: state.name,
-            capital: state.capital
+            capital: state.capital,
+            towns: render_many(state.towns, __MODULE__, "town.json", as: :town)
+        }
+    end
+
+    def render("town.json", %{town: town}) do
+        %{
+            id: town.id,
+            name: town.name
         }
     end
 end

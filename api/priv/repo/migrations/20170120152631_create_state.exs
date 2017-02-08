@@ -12,6 +12,6 @@ defmodule Api.Repo.Migrations.CreateState do
   end
 
   def down do
-    drop table(:states) 
+    drop_if_exists table(:states) 
   end
 end
