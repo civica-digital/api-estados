@@ -5,6 +5,10 @@ defmodule Api.StateView do
         %{states: render_many(states, __MODULE__, "state.json")}
     end
 
+    def render("show.json", %{state: state}) do
+         %{state: render_one(state, __MODULE__, "state.json")}
+    end
+
     def render("state.json", %{state: state}) do
         %{
             id: state.id,
