@@ -13,6 +13,7 @@ defmodule Api.Router do
         
         resources "/states", StateController, only: [:index,:show]
         resources "/towns", TownController, only: [:index,:show]
+        resources "/constituencies", ConstituencyController, only: [:index,:show]
       end
 
     end

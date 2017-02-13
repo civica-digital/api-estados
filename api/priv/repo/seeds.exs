@@ -12,7 +12,9 @@
 
 alias Api.State
 alias Api.Town
+alias Api.Constituency
 alias Api.Repo
 
 Repo.delete_all(Town)
-Api.Repo.delete_all(State)
+Repo.delete_all(State)
+Repo.delete_all(Constituency)
