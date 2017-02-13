@@ -9,7 +9,7 @@ defmodule Api.ConstituencyController do
     end
 
     def show(conn, %{"id" => constituency}) do
-        constituency = Api.Repo.get!(Constituency, constituency)
-        render conn, "show.json", constituency: constituency |> Repo.preload([:town])
+        constituency = Api.Repo.get!(Constituency, constituency) |> Repo.preload([:town])
+        render conn, "show.json", constituency: constituency 
     end
 end

@@ -9,7 +9,7 @@ defmodule Api.StateController do
     end
 
     def show(conn, %{"id" => state}) do
-        state = Api.Repo.get!(State, state)
-        render conn, "show.json", state: state |> Repo.preload([:towns]) |> Repo.preload([towns: [:constituencies]])
+        state = Api.Repo.get!(State, state) |> Repo.preload([:towns]) |> Repo.preload([towns: [:constituencies]])
+        render conn, "show.json", state: state 
     end
 end
