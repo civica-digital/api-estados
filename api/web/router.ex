@@ -11,8 +11,9 @@ defmodule Api.Router do
     scope "/v1" do
       scope "/political_division" do
         
-        resources "/states", StateController, only: [:index]
-        resources "/towns", TownController, only: [:index]
+        resources "/states", StateController, only: [:index,:show]
+        resources "/towns", TownController, only: [:index,:show]
+        resources "/constituencies", ConstituencyController, only: [:index,:show]
       end
 
     end

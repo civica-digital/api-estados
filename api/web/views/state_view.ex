@@ -5,19 +5,16 @@ defmodule Api.StateView do
         %{states: render_many(states, __MODULE__, "state.json")}
     end
 
+    def render("show.json", %{state: state}) do
+         %{state: render_one(state, __MODULE__, "state.json")}
+    end
+
     def render("state.json", %{state: state}) do
         %{
             id: state.id,
             name: state.name,
             capital: state.capital,
-            towns: render_many(state.towns, __MODULE__, "town.json", as: :town)
-        }
-    end
-
-    def render("town.json", %{town: town}) do
-        %{
-            id: town.id,
-            name: town.name
+            towns: render_many(state.towns, Api.TownView, "town.json", as: :town)
         }
     end
 end
