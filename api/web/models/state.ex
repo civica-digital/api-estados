@@ -6,6 +6,7 @@ defmodule Api.State do
         field :capital, :string
 
         has_many :towns, Api.Town
+        
         timestamps()
     end
 end

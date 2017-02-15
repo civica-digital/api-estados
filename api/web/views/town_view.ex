@@ -16,7 +16,14 @@ defmodule Api.TownView do
             id: town.id,
             state: Repo.get!(Api.State, town.state_id).name,
             name: town.name,
-            constituencies: render_many(town.constituencies, Api.Constituency, "constituency.json", as: :constituency)
+            constituencies: render_many(town.constituencies, __MODULE__, "constituency.json", as: :constituency)
+        }
+    end
+
+    def render("constituency.json", %{constituency: constituency}) do
+        %{
+            id: constituency.id,
+            section: constituency.section
         }
     end
 end
