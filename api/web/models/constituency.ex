@@ -3,6 +3,7 @@ defmodule Api.Constituency do
 
     schema "constituencies" do
       field :section, :string
+      
       belongs_to :town, Api.Constituency, foreign_key: :town_id 
       
       timestamps()

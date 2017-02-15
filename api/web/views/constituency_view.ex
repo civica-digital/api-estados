@@ -14,7 +14,8 @@ defmodule Api.ConstituencyView do
     def render("constituency.json", %{constituency: constituency}) do
         %{
             id: constituency.id,
-            town: Repo.get!(Api.Town, constituency.town_id).name,
+            state: Repo.get!(Api.State, Repo.get!(Api.Town, constituency.town_id).state_id).name,
+            town:  Repo.get!(Api.Town, constituency.town_id).name,
             section: constituency.section
         }
     end
