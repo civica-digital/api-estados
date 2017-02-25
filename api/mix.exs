@@ -3,7 +3,7 @@ defmodule Api.Mixfile do
 
   def project do
     [app: :api,
-     version: "0.1.2",
+     version: "0.1.3",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -19,7 +19,7 @@ defmodule Api.Mixfile do
   def application do
     [mod: {Api, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :csv, :exrm]]
+                    :phoenix_ecto, :postgrex, :csv, :cors_plug, :exrm]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,6 +37,7 @@ defmodule Api.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:csv, "~> 1.4"},
+     {:cors_plug, "~> 1.2"},
      {:exrm, "~> 1.0"}]
   end
 
