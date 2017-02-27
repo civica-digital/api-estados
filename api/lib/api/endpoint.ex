@@ -38,6 +38,6 @@ defmodule Api.Endpoint do
 
 
 
-  plug Corsica, origins: "*"   
+  plug Corsica, origins: "*", allow_headers: ["accept", "access-control-allow-origin"], allow_methods: ["GET"]
   plug Api.Router
 end
