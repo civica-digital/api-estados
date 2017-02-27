@@ -38,7 +38,6 @@ defmodule Api.Endpoint do
 
 
 
-  plug CORSPlug, origin: ~r/*/
-    
+  plug CORSPlug    
   plug Api.Router
 end
