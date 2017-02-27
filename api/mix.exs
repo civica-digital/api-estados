@@ -19,7 +19,7 @@ defmodule Api.Mixfile do
   def application do
     [mod: {Api, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :csv, :cors_plug, :exrm]]
+                    :phoenix_ecto, :postgrex, :csv, :corsica, :exrm]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,7 +37,7 @@ defmodule Api.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:csv, "~> 1.4"},
-     {:cors_plug, "~> 1.2"},
+     {:corsica, "~> 0.5"},
      {:exrm, "~> 1.0"}]
   end
 

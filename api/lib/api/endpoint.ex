@@ -38,6 +38,6 @@ defmodule Api.Endpoint do
 
 
 
-  plug CORSPlug    
+  plug Corsica, origins: "*"   
   plug Api.Router
 end
