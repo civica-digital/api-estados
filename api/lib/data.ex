@@ -5,11 +5,10 @@ defmodule Data do
 
   def load_csv("estados") do
 
-
     File.stream!(Path.expand("priv/data/estados.csv"))
     |> CSV.decode(separator: ?\,, headers: true)
     |> Enum.map(fn row ->
-      Repo.insert!(%State{name: row["estado"], capital: row["capital"]}) 
+      Repo.insert!(%State{country: row["pais"], name: row["estado"], capital: row["capital"], geopoint: row["geopunto"]}) 
       end)
   end
 

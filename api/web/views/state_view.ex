@@ -11,9 +11,11 @@ defmodule Api.StateView do
 
     def render("state.json", %{state: state}) do
         %{
+            country: state.country,
             id: state.id,
             name: state.name,
             capital: state.capital,
+            geopoint: state.geopoint
         }
     end
 end

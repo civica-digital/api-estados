@@ -5,6 +5,8 @@ defmodule Api.Repo.Migrations.CreateState do
     create table(:states) do
       add :name, :string, null: false
       add :capital, :string, null: false
+      add :country, :string, null: false
+      add :geopoint, :string, null: false
       timestamps()
     end
 
