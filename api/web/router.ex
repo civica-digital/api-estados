@@ -7,11 +7,14 @@ defmodule Api.Router do
 
   scope "/api", Api do
     pipe_through :api
-
+    
     scope "/v1" do
       scope "/political_division" do
-        
-        resources "/states", StateController, only: [:index,:show]
+        resources "/states", StateController, only: [:index,:show] do
+          resources "/towns", TownController, only: [:index,:show] do
+            resources "/constituencies", ConstituencyController, only: [:index,:show]
+          end
+        end
         resources "/towns", TownController, only: [:index,:show]
         resources "/constituencies", ConstituencyController, only: [:index,:show]
       end

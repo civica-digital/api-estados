@@ -14,7 +14,6 @@ defmodule Api.StateView do
             id: state.id,
             name: state.name,
             capital: state.capital,
-            towns: render_many(state.towns, Api.TownView, "town.json", as: :town)
         }
     end
 end
