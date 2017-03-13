@@ -1,7 +1,7 @@
 #Api Estados
 
 Toda la geografía de México: Estados, capitales, municipios, sectores electorales, GeoJson, etc.
-> Realizado en [Elixir on Phoenix](http://www.phoenixframework.org/)
+> Realizado en [Elixir y Phoenix Framework](http://www.phoenixframework.org/)
 
 #Iniciar la app en Phoenix:
 
