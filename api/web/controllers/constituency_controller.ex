@@ -1,7 +1,14 @@
 defmodule Api.ConstituencyController do
-    use Api.Web, :controller
+     use Api.Web, :controller
 
     alias Api.Constituency
+    alias Api.State
+    alias Api.Town
+
+    def index(conn,  %{"state_id" => state_id, "town_id" => town_id} = params) do
+        constituency = Repo.get!(Town, town_id)  |> Repo.preload([:constituencies])
+        render conn, "states.json", constituency: constituency
+    end
 
     def index(conn, _params) do
         constituencies = Repo.all(Constituency) |> Repo.preload([:town])

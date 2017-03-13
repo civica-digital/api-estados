@@ -11,10 +11,11 @@ defmodule Api.StateView do
 
     def render("state.json", %{state: state}) do
         %{
+            country: state.country,
             id: state.id,
             name: state.name,
             capital: state.capital,
-            towns: render_many(state.towns, Api.TownView, "town.json", as: :town)
+            geopoint: state.geopoint
         }
     end
 end
