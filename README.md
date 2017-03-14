@@ -1,25 +1,53 @@
-#Api Estados
+# Api Estados
 
-Toda la geografía de México: Estados, capitales, municipios, sectores electorales, GeoJson, etc.
-> Realizado en [Elixir y Phoenix Framework](http://www.phoenixframework.org/)
+Toda la geografía de México: Estados, capitales, municipios, sectores electorales, GeoJson, etc, en una sola API.
 
-#Iniciar la app en Phoenix:
 
-  * Instala las dependencias con `mix deps.get`
-  * Crea y migra la base de datos con: `mix ecto.create && mix ecto.migrate`
-  * Inicia el servidor de Phoenix con: `mix phoenix.server`
-  * Llenar los datos de la api: 
+## Requerimientos
+Este proyecto esta desarrollado con las siguientes herramientas:
 
-        Data.load_csv("estados")
-        Data.load_csv("municipios")
-        Data.load_csv("secciones")
-        
+* [Elixir](http://elixir-lang.org/install.html)
+* [Phoenix Framework](http://www.phoenixframework.org/docs/installation)
+* [Postgresql](https://www.postgresql.org/docs/9.6/static/index.html)
+
+## Instalación
+```
+#Clonamos el repo
+$ git clone https://github.com/emanuelzh/api-estados.git
+#Entramos al directorio api
+$ cd api-estados/api
+#Instalamos dependencias
+$ mix deps.get
+#Creamos la base de datos y ejecutamos las migraciones
+$ mix ecto.create && mix ecto.migrate
+#Cargamos los datos de los archivos CSV
+$ mix run priv/repo/seeds.exs
+#Iniciamos el server de pruebas (http://localhost:4000)
+$ mix phoenix.server
+```
 Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegador.
 
+#### Troubleshooting
+Si durante la creación de la base de datos ocurre un error como el siguiente
+```
+** (Mix) The database for Api.Repo couldn't be created: an exception was raised:
+```
+es probable que sea relacionado con el usuario de postgres. Puedes intentar corregirlo agregando la siguiente información al archivo `config/devs.ex`:
 
-#Documentación de API:
+```
+# Configure your database
+config :api, Api.Repo,
+adapter: Ecto.Adapters.Postgres,
+username: "postgres", # < agrega esta linea
+password: "postgres", # < agrega esta linea
+database: "api_dev",
+hostname: "localhost",
+```
 
-##Consumir estados del pais:
+
+## Documentación de API
+
+### Consumir estados del pais:
 	
 **Todos los estados:** 
 
@@ -29,7 +57,7 @@ Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegado
 
 	/api/v1/political_division/states/{state_id}
 	
-##Consumir municipios del pais:
+### Consumir municipios del pais:
 
 **Todos los municipios:** 
 	
@@ -47,7 +75,7 @@ Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegado
 	/api/v1/political_division/states/{state_id}/towns/{town_id}
 		
 		
-##Consumir Secciones electorales del pais:
+### Consumir Secciones electorales del pais:
 
 **Todos las secciones electorales:** 
 	
@@ -64,7 +92,7 @@ Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegado
 	/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies/{constituency_id}
 	
 
-#¿Preguntas o problemas? 
+## ¿Preguntas o problemas? 
 
 Mantenemos la conversación del proyecto en nuestra página de problemas [issues](https://github.com/civica-digital/api-estados/issues). Si usted tiene cualquier otra pregunta, nos puede contactar por correo a <hola@civica.digital>.
 
