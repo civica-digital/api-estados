@@ -32,7 +32,7 @@ $ mix phoenix.server
 ```
 Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegador.
 
-#### Troubleshooting
+#### Solución de problemas
 Si durante la creación de la base de datos ocurre un error como el siguiente
 ```
 ** (Mix) The database for Api.Repo couldn't be created: an exception was raised:
