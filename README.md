@@ -18,6 +18,9 @@ $ git clone https://github.com/civica-digital/api-estados.git
 #Entramos al directorio api
 $ cd api-estados/api
 
+#Preparamos la configuracion de base de datos de desarrollo
+$ mv config/dev.secret.exs.example config/dev.secret.exs
+
 #Instalamos dependencias
 $ mix deps.get
 
@@ -37,17 +40,7 @@ Si durante la creación de la base de datos ocurre un error como el siguiente
 ```
 ** (Mix) The database for Api.Repo couldn't be created: an exception was raised:
 ```
-es probable que sea relacionado con el usuario de postgres. Puedes intentar corregirlo agregando la siguiente información al archivo `config/devs.ex`:
-
-```
-# Configure your database
-config :api, Api.Repo,
-adapter: Ecto.Adapters.Postgres,
-username: "postgres", # < agrega esta linea
-password: "postgres", # < agrega esta linea
-database: "api_dev",
-hostname: "localhost",
-```
+es probable que sea relacionado con el usuario de postgres. Puedes intentar corregirlo actualizando la información del archivo `config/dev.secret.exs` con los datos de acceso a tu base local.
 
 
 ## Documentación de API
