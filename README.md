@@ -13,15 +13,20 @@ Este proyecto esta desarrollado con las siguientes herramientas:
 ## Instalación
 ```
 #Clonamos el repo
-$ git clone https://github.com/emanuelzh/api-estados.git
+$ git clone https://github.com/civica-digital/api-estados.git
+
 #Entramos al directorio api
 $ cd api-estados/api
+
 #Instalamos dependencias
 $ mix deps.get
+
 #Creamos la base de datos y ejecutamos las migraciones
 $ mix ecto.create && mix ecto.migrate
+
 #Cargamos los datos de los archivos CSV
 $ mix run priv/repo/seeds.exs
+
 #Iniciamos el server de pruebas (http://localhost:4000)
 $ mix phoenix.server
 ```
