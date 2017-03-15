@@ -1,13 +1,11 @@
 {
     "type": "FeatureCollection",
     "features": [
-        {
-            "type": "Feature",
-            "properties": {
-            "id": "01"
-        },
-        "geometry": {
-        "type": "Polygon",
+    {
+      "type": "Feature",
+      "properties": {"name":"aguascalientes"},
+      "geometry": {
+       "type": "Polygon",
         "coordinates": [
             [
             [
