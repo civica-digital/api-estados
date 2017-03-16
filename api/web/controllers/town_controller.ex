@@ -12,7 +12,7 @@ defmodule Api.TownController do
     def index(conn, params) do
         towns = 
             Town
-            |> QueryFilter.filter(%Town{}, params, [:state, :name])
+            |> QueryFilter.filter(%Town{}, params, [:name])
             |> Repo.all() 
             |> Repo.preload([:state])
         render conn, "index.json", towns: towns
