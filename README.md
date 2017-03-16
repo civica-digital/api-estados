@@ -51,6 +51,71 @@ Si durante la creación de la base de datos ocurre un error como el siguiente
 ```
 es probable que sea relacionado con el usuario de postgres. Puedes intentar corregirlo actualizando la información del archivo `config/dev.secret.exs` con los datos de acceso a tu base local.
 
+## Instalación en desarrollo mediante Docker
+
+Es posible levantar un ambiente de desarrollo mediante Docker y DockerCompose sin necesidad de tener Elixir y Phoenix instalado de forma local
+
+### Requisitos:
+
+* [Docker](https://www.docker.com/community-edition)
+* [Docker Compose](https://docs.docker.com/compose/): Instalado de forma automática mediante el Docker Toolbox en Windows y OSX. En sistemas operativos *nix, las instrucciones para instalarlo se encuentran en el enlace
+
+### Instrucciones:
+
+Cambiar al directorio de la api:
+
+```bash
+$ cd api
+```
+
+1. Asegurar que **PG_HOST**,  **PG_USERNAME** dentro del archivo *docker-compose.yml* sean los mismos a los del archivo *dev.secret.exs*
+
+	* En caso de utilizar un usuario y contraseña distinto de base de datos, actualizar el servicio `postgres` dentro del archivo *docker-compose.yml* de la siguiente forma:
+
+	```yaml
+	postgres:
+		image: postgres:9.5 
+		environment: 
+		- POSTGRES_USER:'foo'
+		- POSTGRES_PASSWORD:'foobar'
+		ports:
+		- "5432"
+	```
+
+2. Asegurar que el **hostname** de *dev.secret.exs* sea el mismo que el especificado como servicio de base de datos dentro de *docker-compose.yml*. Por defecto **postgres**
+
+
+3. Levantar el ambiente (`-d` ejecuta en modo *deatached*). Por defecto su nombre es **web**
+```bash
+$ docker-compose up -d web
+```
+
+4. Ejecutar dependencias y compilar
+
+```bash
+$ docker-compose run web mix do deps.get, compile
+
+#En linux, los archivos compilados creados dentro de un contenedor tienen como dueño original a root, es necesario regresarlo al usuario original: 
+$sudo chown -R $USER:$USER _build
+```
+
+5. Ejecutar migraciones y seed inicial
+```bash
+$ docker-compose run web mix ecto.create
+$ docker-compose run web mix ecto.migrate
+$ docker-compose run web mix run priv/repo/seeds.exs
+```
+
+6. Reiniciar el servidor
+```bash
+$ docker-compose restart web
+```
+
+Para ejecutar comandos dentro del servidor es necesario escribir **docker-compose run web** y el comando.
+
+### Ejecutar pruebas
+
+Para las pruebas hay que verificar que los datos que se encuentren en **test.exs** sean los mismos que los de **docker-compose.yaml** en el servicio **test**
 
 ## Documentación de API
 
