@@ -11,31 +11,38 @@ Este proyecto esta desarrollado con las siguientes herramientas:
 * [Postgresql](https://www.postgresql.org/docs/9.6/static/index.html)
 
 ## Instalación
-```
-#Clonamos el repo
-$ git clone https://github.com/civica-digital/api-estados.git
 
-#Entramos al directorio api
-$ cd api-estados/api
+####Clonamos el repo
+   
+    $ git clone https://github.com/civica-digital/api-estados.git
 
-#Preparamos la configuracion de base de datos de desarrollo
-$ mv config/dev.secret.exs.example config/dev.secret.exs
+####Entramos al directorio api
 
-#Instalamos dependencias
-$ mix deps.get
+	$ cd api-estados/api
 
-#Creamos la base de datos y ejecutamos las migraciones
-$ mix ecto.create && mix ecto.migrate
+####Preparamos la configuracion de base de datos de desarrollo
 
-#Cargamos los datos de los archivos CSV
-$ mix run priv/repo/seeds.exs
+	$ mv config/dev.secret.exs.example config/dev.secret.exs
 
-#Iniciamos el server de pruebas (http://localhost:4000)
-$ mix phoenix.server
-```
+####Instalamos dependencias
+	
+	$ mix deps.get
+
+####Creamos la base de datos y ejecutamos las migraciones
+
+	$ mix ecto.create && mix ecto.migrate
+
+####Cargamos los datos de los archivos CSV
+
+	$ mix run priv/repo/seeds.exs
+
+####Iniciamos el server de pruebas
+
+	$ mix phoenix.server
+	
 Ahora puedes visitar [`localhost:4000`](http://localhost:4000) desde tu navegador.
 
-#### Solución de problemas
+### Solución de problemas
 Si durante la creación de la base de datos ocurre un error como el siguiente
 ```
 ** (Mix) The database for Api.Repo couldn't be created: an exception was raised:
@@ -80,6 +87,7 @@ es probable que sea relacionado con el usuario de postgres. Puedes intentar corr
 	/api/v1/political_division/constituencies
 		
 **Secciones electorales de un municipio:** 
+	
 	/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies
 		
 **Una seccion electoral:** 
@@ -88,7 +96,18 @@ es probable que sea relacionado con el usuario de postgres. Puedes intentar corr
 ó 
 	
 	/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies/{constituency_id}
+
+## Documentación de GeoMéxico
+
+### Actualmente se pueden obtener:
+
+**Contorno de México:** 
+ 
+    https://raw.githubusercontent.com/civica-digital/api-estados/master/GeoMexico/mexico.geo.json
 	
+**Contorno de cualquier estado de México:** 	
+
+		https://raw.githubusercontent.com/civica-digital/api-estados/json_estados/GeoMexico/estados/{nombre_estado}.geo.json
 
 ## ¿Preguntas o problemas? 
 
