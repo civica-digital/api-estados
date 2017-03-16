@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {"name":""},
       "geometry": {
-       "type": "Polygon",
+       "type": "MultiPolygon",
         "coordinates": [
                     [
                         [
