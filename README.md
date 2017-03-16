@@ -12,31 +12,31 @@ Este proyecto esta desarrollado con las siguientes herramientas:
 
 ## Instalación
 
-####Clonamos el repo
+#### Clonamos el repo
    
     $ git clone https://github.com/civica-digital/api-estados.git
 
-####Entramos al directorio api
+#### Entramos al directorio api
 
 	$ cd api-estados/api
 
-####Preparamos la configuracion de base de datos de desarrollo
+#### Preparamos la configuracion de base de datos de desarrollo
 
 	$ mv config/dev.secret.exs.example config/dev.secret.exs
 
-####Instalamos dependencias
+#### Instalamos dependencias
 	
 	$ mix deps.get
 
-####Creamos la base de datos y ejecutamos las migraciones
+#### Creamos la base de datos y ejecutamos las migraciones
 
 	$ mix ecto.create && mix ecto.migrate
 
-####Cargamos los datos de los archivos CSV
+#### Cargamos los datos de los archivos CSV
 
 	$ mix run priv/repo/seeds.exs
 
-####Iniciamos el server de pruebas
+#### Iniciamos el server de pruebas
 
 	$ mix phoenix.server
 	
@@ -114,7 +114,7 @@ es probable que sea relacionado con el usuario de postgres. Puedes intentar corr
 Mantenemos la conversación del proyecto en nuestra página de problemas [issues](https://github.com/civica-digital/api-estados/issues). Si usted tiene cualquier otra pregunta, nos puede contactar por correo a <hola@civica.digital>.
 
 
-#Licencia
+## Licencia
 
 Licensed under the Apache License, Version 2.0 Read the document [LICENSE](http://www.apache.org/licenses/LICENSE-2.0) for more information
 
