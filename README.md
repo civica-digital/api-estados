@@ -2,6 +2,8 @@
 
 Toda la geografía de México: Estados, capitales, municipios, sectores electorales, GeoJson, etc, en una sola API.
 
+[![Build Status](https://semaphoreci.com/api/v1/gidrek/api-estados/branches/master/shields_badge.svg)](https://semaphoreci.com/gidrek/api-estados)
+
 
 ## Requerimientos
 Este proyecto esta desarrollado con las siguientes herramientas:
