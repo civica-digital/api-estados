@@ -21,6 +21,14 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# Import database configuration
-import_config "dev.secret.exs"
+config :api, Api.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "api_dev",
+  hostname: "localhost",
+  pool_size: 10
+
+# Import database configuration if you want to overwrite it
+# import_config "dev.secret.exs"
   
