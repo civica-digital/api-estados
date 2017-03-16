@@ -7,8 +7,8 @@ defmodule Api.StateController do
     def index(conn, params) do
         states = 
           State
-          |> QueryFilter.filter(%State{}, params, [:name])
-          |> Repo.all
+          |> QueryFilter.filter(%State{}, params, [:name, :short_name])
+          |> Repo.all()
 
         render conn, "index.json", states: states
     end

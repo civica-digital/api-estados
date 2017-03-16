@@ -8,7 +8,7 @@ defmodule Data do
     File.stream!(Path.expand("priv/data/estados.csv"))
     |> CSV.decode(separator: ?\,, headers: true)
     |> Enum.map(fn row ->
-      Repo.insert!(%State{country: row["pais"], name: row["estado"], capital: row["capital"], geopoint: row["geopunto"]}) 
+      Repo.insert!(%State{country: row["pais"], name: row["estado"], short_name: row["nombre_corto"], capital: row["capital"], geopoint: row["geopunto"]}) 
       end)
   end
 
