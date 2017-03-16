@@ -14,6 +14,7 @@ defmodule Api.StateView do
             country: state.country,
             id: state.id,
             name: state.name,
+            short_name: state.short_name,
             capital: state.capital,
             geopoint: state.geopoint
         }

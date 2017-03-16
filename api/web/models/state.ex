@@ -4,6 +4,7 @@ defmodule Api.State do
     schema "states" do
         field :country, :string
         field :name, :string
+        field :short_name, :string
         field :capital, :string
         field :geopoint, :string
 
