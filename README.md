@@ -61,6 +61,11 @@ es probable que sea relacionado con el usuario de postgres. Puedes intentar corr
 **Un estado:** 
 
 	/api/v1/political_division/states/{state_id}
+
+ó 
+	
+	/api/v1/political_division/states?
+	con el filtro: name={state name} | short_name={state short name} 
 	
 ### Consumir municipios del pais:
 
