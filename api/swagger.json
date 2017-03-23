@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/api/v1/political_division/states/{id}": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "operationId": "Api.StateController.show",
+        "description": "Information of state"
+      }
+    },
+    "/api/v1/political_division/states": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "operationId": "Api.StateController.index",
+        "description": "List of states"
+      }
+    }
+  },
+  "info": {
+    "version": "0.1",
+    "title": "Api Estados",
+    "license": {
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "name": "Apache 2.0"
+    },
+    "description": "Información geográfica de México (Estados, Municipios, Secciones electorales, Colonias, CPs, GeoJosns)",
+    "contact": {
+      "url": "civica.digital",
+      "name": "Cívica Digital ",
+      "email": "hola@civica.digital"
+    }
+  },
+  "host": "https://apiestados.opendev.mx",
+  "definitions": {}
+}
