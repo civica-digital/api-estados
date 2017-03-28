@@ -38,7 +38,7 @@ defmodule Api.Mixfile do
      {:cowboy, "~> 1.0"},
      {:csv, "~> 1.4"},
      {:corsica, "~> 0.5"},
-     {:exrm, "~> 1.0"}]
+     {:distillery, "~> 0.10.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
