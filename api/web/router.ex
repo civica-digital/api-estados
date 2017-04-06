@@ -43,10 +43,9 @@ defmodule Api.Router do
         }
       },
       schemes: [
-      "http"
+      "https"
       ],
-      host: "localhost:4000"
+      host: "apiestados.opendev.mx"
     }
   end
 end
-#apiestados.opendev.mx
