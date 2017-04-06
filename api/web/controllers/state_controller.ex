@@ -8,6 +8,10 @@ defmodule Api.StateController do
       get "/api/v1/political_division/states"
       description "List of states"
       produces "application/json"
+       parameters do
+        name :path, :string, "nombre del estado", required: false, example: "Aguascalientes"
+        short_name :path, :string, "nombre corto del estado", required: false, example: "Aguascalientes"
+      end
       response 200, "OK"
     end
 
@@ -30,7 +34,14 @@ defmodule Api.StateController do
     
     def show(conn, %{"id" => state}) do
         state = Repo.get!(State, state)
-        render conn, "show.json", state: state 
+        case state do
+            nil ->
+                conn
+                |> put_status(400)
+                |> render(Api.MessageView, "index.json", error: "Estado inválido")
+            _ ->
+              render conn, "show.json", state: state 
+        end
     end
     
 end

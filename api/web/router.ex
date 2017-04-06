@@ -17,8 +17,8 @@ defmodule Api.Router do
           end
         end
       end
-        resources "/towns", TownController, only: [:index,:show]
-        resources "/constituencies", ConstituencyController, only: [:index,:show]
+        #resources "/towns", TownController, only: [:index,:show]
+        #resources "/constituencies", ConstituencyController, only: [:index,:show]
     end
   end
   
@@ -42,8 +42,11 @@ defmodule Api.Router do
           url: "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
       },
-      schemes: "https",
-       host: "apiestados.opendev.mx"
+      schemes: [
+      "http"
+      ],
+      host: "localhost:4000"
     }
   end
 end
+#apiestados.opendev.mx
