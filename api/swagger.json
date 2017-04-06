@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies/{id}": {
@@ -41,7 +41,7 @@
             "required": true,
             "name": "id",
             "in": "path",
-            "description": "id dela sección electral"
+            "description": "id de la sección electral"
           }
         ],
         "operationId": "Api.ConstituencyController.show",
@@ -227,6 +227,6 @@
       "email": "hola@civica.digital"
     }
   },
-  "host": "localhost:4000",
+  "host": "apiestados.opendev.mx",
   "definitions": {}
 }
