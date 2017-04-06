@@ -1,0 +1,232 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies/{id}": {
+      "get": {
+        "tags": [
+          "Constituency"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "id del estado"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "town_id",
+            "in": "path",
+            "description": "id del municipio"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "id de la sección electral"
+          }
+        ],
+        "operationId": "Api.ConstituencyController.show",
+        "description": "Información de una sección electoral"
+      }
+    },
+    "/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies": {
+      "get": {
+        "tags": [
+          "Constituency"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "id del estado"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "town_id",
+            "in": "path",
+            "description": "id del municipio"
+          }
+        ],
+        "operationId": "Api.ConstituencyController.index",
+        "description": "Lista de secciones electorales de un estado"
+      }
+    },
+    "/api/v1/political_division/states/{state_id}/towns/{id}": {
+      "get": {
+        "tags": [
+          "Town"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "id del estado"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "id del municipio"
+          }
+        ],
+        "operationId": "Api.TownController.show",
+        "description": "Información de un municipio"
+      }
+    },
+    "/api/v1/political_division/states/{state_id}/towns": {
+      "get": {
+        "tags": [
+          "Town"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "state id"
+          }
+        ],
+        "operationId": "Api.TownController.index",
+        "description": "Lista de municipios de un estado"
+      }
+    },
+    "/api/v1/political_division/states/{id}": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "state id"
+          }
+        ],
+        "operationId": "Api.StateController.show",
+        "description": "Information of state"
+      }
+    },
+    "/api/v1/political_division/states": {
+      "get": {
+        "tags": [
+          "State"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": "Aguascalientes",
+            "type": "string",
+            "required": false,
+            "name": "name",
+            "in": "path",
+            "description": "nombre del estado"
+          },
+          {
+            "x-example": "Aguascalientes",
+            "type": "string",
+            "required": false,
+            "name": "short_name",
+            "in": "path",
+            "description": "nombre corto del estado"
+          }
+        ],
+        "operationId": "Api.StateController.index",
+        "description": "List of states"
+      }
+    }
+  },
+  "info": {
+    "version": "0.1",
+    "title": "Api Estados",
+    "license": {
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "name": "Apache 2.0"
+    },
+    "description": "Información geográfica de México (Estados, Municipios, Secciones electorales, Colonias, CPs, GeoJosns)",
+    "contact": {
+      "url": "civica.digital",
+      "name": "Cívica Digital ",
+      "email": "hola@civica.digital"
+    }
+  },
+  "host": "apiestados.opendev.mx",
+  "definitions": {}
+}

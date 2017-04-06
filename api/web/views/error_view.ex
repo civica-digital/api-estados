@@ -2,11 +2,11 @@ defmodule Api.ErrorView do
   use Api.Web, :view
 
   def render("404.json", _assigns) do
-    %{errors: %{detail: "Page not found"}}
+    %{errors: %{detail: "Página no encontrada, para la documentación completa visita: /api/swagger/#/"}}
   end
 
   def render("500.json", _assigns) do
-    %{errors: %{detail: "Internal server error"}}
+    %{errors: %{detail: "Error servidor interno, para la documentación completa visita: /api/swagger/#/"}}
   end
 
   # In case no render clause matches or no
