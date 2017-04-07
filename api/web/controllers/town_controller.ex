@@ -14,7 +14,9 @@ defmodule Api.TownController do
       response 200, "OK"
     end
     def index(conn,  %{"state_id" => state_id} = params) do
-        town = Repo.get(State, state_id) |>  Repo.preload([:towns])
+        town = Repo.get(State, state_id) 
+                |>  Repo.preload(towns: from(c in Town, order_by: c.name))
+
         case town do
             nil ->
                 conn

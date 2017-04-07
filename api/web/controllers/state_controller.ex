@@ -18,6 +18,7 @@ defmodule Api.StateController do
     def index(conn, params) do
         states = 
           State
+          |> QueryFilter.order_by([:name])
           |> QueryFilter.filter(%State{}, params, [:name, :short_name])
           |> Repo.all()
 

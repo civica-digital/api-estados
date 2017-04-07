@@ -3,7 +3,7 @@ defmodule Api.Mixfile do
 
   def project do
     [app: :api,
-     version: "0.1.1",
+     version: "0.1.2",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -19,7 +19,7 @@ defmodule Api.Mixfile do
   def application do
     [mod: {Api, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :csv, :corsica, :exrm, :phoenix_swagger]]
+                    :phoenix_ecto, :postgrex, :csv, :corsica, :phoenix_swagger]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,8 +38,8 @@ defmodule Api.Mixfile do
      {:cowboy, "~> 1.0"},
      {:csv, "~> 1.4"},
      {:corsica, "~> 0.5"},
-     {:exrm, "~> 1.0"},
-    {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git" }]
+     {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git" },
+     {:distillery, "~> 0.10.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
