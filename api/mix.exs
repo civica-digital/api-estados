@@ -38,8 +38,8 @@ defmodule Api.Mixfile do
      {:cowboy, "~> 1.0"},
      {:csv, "~> 1.4"},
      {:corsica, "~> 0.5"},
-     {:exrm, "~> 1.0"},
-    {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git" }]
+     {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git" },
+     {:distillery, "~> 0.10.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
