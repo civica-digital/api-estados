@@ -3,7 +3,7 @@ defmodule Api.Mixfile do
 
   def project do
     [app: :api,
-     version: "0.1.2",
+     version: "0.1.3",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
