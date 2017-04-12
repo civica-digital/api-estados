@@ -36,8 +36,5 @@ defmodule Api.Endpoint do
     key: "_api_key",
     signing_salt: "jE45mFB2"
 
-
-
-  plug Corsica, origins: "*", allow_headers: ["accept", "access-control-allow-origin"], allow_methods: ["GET"]
   plug Api.Router
 end

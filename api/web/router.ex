@@ -17,8 +17,6 @@ defmodule Api.Router do
           end
         end
       end
-        #resources "/towns", TownController, only: [:index,:show]
-        #resources "/constituencies", ConstituencyController, only: [:index,:show]
     end
   end
   
