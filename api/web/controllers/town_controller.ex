@@ -13,7 +13,7 @@ defmodule Api.TownController do
       parameter :state_id, :path, :integer, "state id", required: true, example: 1
       response 200, "OK"
     end
-    def index(conn,  %{"state_id" => state_id} = params) do
+    def index(conn,  %{"state_id" => state_id}) do
         town = Repo.get(State, state_id) 
                 |>  Repo.preload(towns: from(c in Town, order_by: c.name))
 
