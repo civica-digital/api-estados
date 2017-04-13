@@ -1,4 +1,4 @@
-defmodule Api.StetViewTest do
+defmodule Api.StateViewTest do
   use Api.ModelCase
   import Api.Factory
   alias Api.StateView

@@ -12,4 +12,20 @@ defmodule Api.Factory do
     }
   end
 
+  def town_factory do
+    %Api.Town{
+        state_id: 1,
+        id: 1,
+        name: "GAM"
+    }
+  end
+
+  def constituency_factory do
+    %Api.Constituency{
+        town_id: 1,
+        id: 1,
+        section: "1"
+    }
+  end
+
 end
