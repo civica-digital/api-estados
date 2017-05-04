@@ -7,6 +7,7 @@ defmodule Api.Town do
       belongs_to :state, Api.Town, foreign_key: :state_id 
       
       has_many :constituencies, Api.Constituency
+      has_many :localities, Api.Locality
       
       timestamps()
     end

@@ -4,6 +4,86 @@
     "https"
   ],
   "paths": {
+    "/api/v1/political_division/states/{state_id}/towns/{town_id}/localities/{id}": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "id del estado"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "town_id",
+            "in": "path",
+            "description": "id del municipio"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "id",
+            "in": "path",
+            "description": "id de la colonia"
+          }
+        ],
+        "operationId": "Api.LocalityController.show",
+        "description": "Información de una colonia"
+      }
+    },
+    "/api/v1/political_division/states/{state_id}/towns/{town_id}/localities": {
+      "get": {
+        "tags": [
+          "Locality"
+        ],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "state_id",
+            "in": "path",
+            "description": "id del estado"
+          },
+          {
+            "x-example": 1,
+            "type": "integer",
+            "required": true,
+            "name": "town_id",
+            "in": "path",
+            "description": "id del municipio"
+          }
+        ],
+        "operationId": "Api.LocalityController.index",
+        "description": "Lista de colonias y códigos postales de un estado"
+      }
+    },
     "/api/v1/political_division/states/{state_id}/towns/{town_id}/constituencies/{id}": {
       "get": {
         "tags": [
@@ -215,6 +295,7 @@
   },
   "info": {
     "version": "0.1",
+    "url": "https://github.com/civica-digital/api-estados",
     "title": "Api Estados",
     "license": {
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html",

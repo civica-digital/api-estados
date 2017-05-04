@@ -14,6 +14,7 @@ defmodule Api.Router do
         resources "/states", StateController, only: [:index,:show] do
           resources "/towns", TownController, only: [:index,:show] do
             resources "/constituencies", ConstituencyController, only: [:index,:show]
+            resources "/localities", LocalityController, only: [:index,:show]
           end
         end
       end
@@ -30,10 +31,11 @@ defmodule Api.Router do
         description: "Información geográfica de México (Estados, Municipios, Secciones electorales, Colonias, CPs, GeoJosns)",
         version: "0.1",
         title: "Api Estados",
+        url: "https://github.com/civica-digital/api-estados",
         contact: %{
           name: "Cívica Digital ",
           url: "civica.digital",
-          email: "hola@civica.digital"
+          email: "hola@civica.digital",
         },
         license: %{
           name: "Apache 2.0",
