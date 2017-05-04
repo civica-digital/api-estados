@@ -62,8 +62,19 @@ Para las pruebas hay que verificar que los datos que se encuentren en **test.exs
 ## Documentación de API
 
 ### Mediante Swagger:
+
+Para generar y ver la documentación:
+
+	$ mix phoenix.swagger.generate
+	$ mix phoenix.swagger.generate priv/static/swagger.json
 	
-	https://apiestados.opendev.mx/api/swagger/#
+**Json:** 
+
+	/api/swagger/swagger.json
+ 
+**Modo gráfico:** 
+
+	/api/swagger/#/
    
 
 ## Documentación de GeoMéxico

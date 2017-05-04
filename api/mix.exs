@@ -19,7 +19,7 @@ defmodule Api.Mixfile do
   def application do
     [mod: {Api, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :csv, :phoenix_swagger]]
+                    :phoenix_ecto, :postgrex, :csv, :phoenix_swagger, :httpoison, :json]]
   end
 
    # Specifies which paths to compile per environment.
@@ -39,7 +39,9 @@ defmodule Api.Mixfile do
      {:csv, "~> 1.4"},
      {:ex_machina, "~> 2.0", only: :test},
      {:phoenix_swagger, git: "https://github.com/xerions/phoenix_swagger.git" },
-     {:distillery, "~> 0.10.1"}]
+     {:distillery, "~> 0.10.1"},
+     {:httpoison, "~> 0.9.0"},
+     {:json, "~> 0.3.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

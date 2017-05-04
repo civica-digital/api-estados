@@ -25,6 +25,7 @@ defmodule Api.TownView do
         %{
             id: town.id,
             name: town.name,
+            geopoint: town.geopoint,
             state: Api.Repo.get!(Api.State, town.state_id).name
         }
     end
@@ -32,7 +33,8 @@ defmodule Api.TownView do
      def render("town.json", %{town: town}) do
         %{
             id: town.id,
-            name: town.name
+            name: town.name,
+            geopoint: town.geopoint
         }
     end
 end

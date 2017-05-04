@@ -4,6 +4,7 @@ defmodule Api.Repo.Migrations.CreateTableTowns do
   def up do
     create table(:towns) do
       add :name, :string, null: false
+      add :geopoint, :string, null: true
       add :state_id, references(:states)
       timestamps()
     end

@@ -3,6 +3,7 @@ defmodule Api.Town do
 
     schema "towns" do
       field :name, :string
+      field :geopoint, :string
 
       belongs_to :state, Api.Town, foreign_key: :state_id 
       

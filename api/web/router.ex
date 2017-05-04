@@ -31,7 +31,6 @@ defmodule Api.Router do
         description: "Información geográfica de México (Estados, Municipios, Secciones electorales, Colonias, CPs, GeoJosns)",
         version: "0.1",
         title: "Api Estados",
-        url: "https://github.com/civica-digital/api-estados",
         contact: %{
           name: "Cívica Digital ",
           url: "civica.digital",

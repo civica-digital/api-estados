@@ -6,6 +6,7 @@ defmodule Api.Repo.Migrations.CreateTableLocality do
       add :name, :string, null: false
       add :postcode, :string, null: false
       add :town_id, references(:towns)
+      
       timestamps()
     end
 
