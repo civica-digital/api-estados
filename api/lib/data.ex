@@ -3,6 +3,9 @@ defmodule Data do
     alias Api.State
     alias Api.Repo
     alias Api.Town
+    alias Api.Locality
+    import Ecto.Query
+    
 
   def load_csv("estados") do
 
@@ -55,50 +58,75 @@ defmodule Data do
   end
 
    defp compute_data(json) do
+     
      Enum.each(json, fn(map) -> 
        %{"clave_municipio" => locality_id, "nombre_municipio" => locality_name, "lat" => lat, "lng" => lng, "nombre_entidad"=> nombre_entidad } = map
+       
        unless locality_name == "todo el estado" do
-          if nombre_entidad == "Distrito Federal" do
-            state = Repo.get_by(State, name: "Ciudad de México")
-          else
-            if nombre_entidad == "San Luis Potosi" do
+          case nombre_entidad do
+            "Distrito Federal" ->
+              state = Repo.get_by(State, name: "Ciudad de México")
+            "San Luis Potosi" ->
               state = Repo.get_by(State, name: "San Luis Potosí")
-            else
-              if nombre_entidad == "Nuevo Leon" do
-                state = Repo.get_by(State, name: "Nuevo León")
-              else
-                if nombre_entidad == "Yucatan" do
-                  state = Repo.get_by(State, name: "Yucatán")
-                else
-                  if nombre_entidad == "Queretaro" do
-                    state = Repo.get_by(State, name: "Querétaro de Arteaga")
-                  else
-                    if nombre_entidad == "Michoacan de Ocampo" do
-                      state = Repo.get_by(State, name: "Michoacán de Ocampo")
-                    else
-                      if nombre_entidad == "Mexico" do
-                        state = Repo.get_by(State, name: "Estado de México")
-                      else
-                        state = Repo.get_by(State, name: nombre_entidad)
-                      end
-                    end
-                  end
-                end
-              end
-            end
+            "Nuevo Leon" ->
+              state = Repo.get_by(State, name: "Nuevo León")
+            "Yucatan" ->
+              state = Repo.get_by(State, name: "Yucatán")
+            "Queretaro" ->
+              state = Repo.get_by(State, name: "Querétaro de Arteaga")
+            "Michoacan de Ocampo" ->
+              state = Repo.get_by(State, name: "Michoacán de Ocampo")
+            "Mexico" ->
+              state = Repo.get_by(State, name: "Estado de México")
+            _ ->
+              state = Repo.get_by(State, name: nombre_entidad)
           end
-          
-           town = Repo.get_by(Town, name: locality_name, state_id: state.id)
-           if town == nil do
-            IO.puts locality_name
-           end
-           
-        end
-       #buscamos el municipio por name y le agregamos lat, long enb towns
 
-       #buscamos id municipio(M) y id de locality(N) http://inegifacil.com/codes/m/n y guardamos en locality 
-     end)
-        
+          query = from t in Town, where: t.state_id == ^state.id
+          town_state = Repo.all(query)
+
+          Enum.each(town_state, 
+            fn(value) -> 
+              if removeAccent(value.name) == locality_name do
+                town = Repo.get_by(Town, name: value.name, state_id: state.id) 
+                post = Ecto.Changeset.change town, geopoint: "#{lat},#{lng}"
+                case Repo.update post do
+                  {:ok, struct}       -> 
+                    create_locality(town.id, "http://inegifacil.com/codes/#{town.id}/#{locality_id}")
+                  {:error, changeset} -> IO.puts "ERROR"
+                end
+                
+              end
+          end)
+        end
+     end) 
   end
 
+  defp removeAccent(value) do
+    value |> String.normalize(:nfd) |> String.replace(~r/[^A-Za-z\s]/u, "")
+  end
+
+  defp create_locality(town_id, url_for) do
+   url_for |> HTTPoison.get |> parse_response_locality(town_id)
+  end
+
+  defp parse_response_locality({:ok, %HTTPoison.Response{body: body, status_code: 200}}, town_id) do
+    body |> JSON.decode! |> insert_data(town_id)
+  end
+
+  defp parse_response_locality(_) do
+    :error
+  end
+
+  defp insert_data(json, town_id) do
+      Enum.each(json, 
+        fn(map) -> 
+          %{"nombre_asentamiento" => nombre_asentamiento, "codigo_postal_oficina" => codigo_postal_oficina } = map
+          IO.puts  nombre_asentamiento
+          IO.puts codigo_postal_oficina
+          IO.puts town_id
+          Repo.insert!(%Locality{name: nombre_asentamiento, postcode: codigo_postal_oficina, town_id: town_id }) 
+        end) 
+  end
+  
 end
