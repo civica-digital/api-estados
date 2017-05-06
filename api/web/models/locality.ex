@@ -1,7 +1,7 @@
 defmodule Api.Locality do
     use Api.Web, :model
 
-    schema "locality" do
+    schema "localities" do
       field :name, :string
       field :postcode, :string
     

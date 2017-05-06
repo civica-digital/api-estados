@@ -23,7 +23,7 @@ defmodule Api.LocalityController do
                 |> put_status(400)
                 |> render(Api.MessageView, "index.json", error: "Estado inválido")
             _ ->
-                locality = Repo.get(Town, town) |> Repo.preload([:constituencies])
+                locality = Repo.get(Town, town) |> Repo.preload([:localities])
                 case "#{state}" == "#{locality.state_id}" do
                     true ->
                        render conn, "states.json", locality: locality

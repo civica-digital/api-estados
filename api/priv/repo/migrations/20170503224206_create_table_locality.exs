@@ -10,7 +10,7 @@ defmodule Api.Repo.Migrations.CreateTableLocality do
       timestamps()
     end
 
-    create unique_index(:localities, [:name, :town_id])
+    create unique_index(:localities, [:name, :town_id, :postcode])
   end
 
   def down do

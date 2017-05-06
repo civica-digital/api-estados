@@ -121,12 +121,11 @@ defmodule Data do
   defp insert_data(json, town_id) do
       Enum.each(json, 
         fn(map) -> 
-          %{"nombre_asentamiento" => nombre_asentamiento, "codigo_postal_oficina" => codigo_postal_oficina } = map
-          IO.puts  nombre_asentamiento
-          IO.puts codigo_postal_oficina
-          IO.puts town_id
-          Repo.insert!(%Locality{name: nombre_asentamiento, postcode: codigo_postal_oficina, town_id: town_id }) 
-        end) 
+          %{"tipo_asentamiento" => tipo_asentamiento,"nombre_asentamiento" => nombre_asentamiento, "codigo_postal_oficina" => codigo_postal_oficina } = map
+          if Repo.get_by(Locality, name:  "#{nombre_asentamiento}", postcode: codigo_postal_oficina, town_id: town_id) == nil do    
+            Repo.insert!(%Locality{name:  "#{nombre_asentamiento}", postcode: codigo_postal_oficina, town_id: town_id }) 
+          end
+      end) 
   end
   
 end
