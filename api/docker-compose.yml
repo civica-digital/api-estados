@@ -14,7 +14,7 @@ services:
     ports:
       - "4000:4000"
     links:
-      - postgres
+      - db
 
   test:
     image: api_web
@@ -28,9 +28,9 @@ services:
     volumes_from:
       - web
     links:
-      - postgres
+      - db
 
-  postgres:
+  db:
     image: postgres:9.5 
     ports:
       - "5432"
