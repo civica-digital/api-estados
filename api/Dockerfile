@@ -12,3 +12,5 @@ RUN apt-get install -y -q nodejs
 
 WORKDIR /app
 ADD . /app
+
+RUN mix do deps.get, compile
